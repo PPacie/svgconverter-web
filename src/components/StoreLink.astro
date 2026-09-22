@@ -5,4 +5,4 @@ const ariaLabel = compact
   ? `${app.navigation.download} on the App Store (opens in a new tab)`
   : `${app.cta.label} (opens in a new tab)`;
 ---
-{app.appStoreUrl ? <a class:list={["button", {compact}]} href={app.appStoreUrl} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}><span aria-hidden="true">↗</span>{compact ? app.navigation.download : app.cta.label}</a> : <span class:list={["button", "unavailable", {compact}]} role="status">{compact ? app.cta.shortUnavailable : app.cta.unavailable}</span>}
+{app.appStoreUrl ? <a class:list={["button", {compact}]} href={app.appStoreUrl} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel}><span class="store-icon" aria-hidden="true"></span>{compact ? app.navigation.download : app.cta.label}</a> : <span class:list={["button", "unavailable", {compact}]} role="status">{compact ? app.cta.shortUnavailable : app.cta.unavailable}</span>}
