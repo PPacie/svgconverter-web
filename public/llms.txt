@@ -1,0 +1,25 @@
+# TrueSVG
+
+> TrueSVG is an iPhone and iPad app that converts raster images into scalable SVG vector graphics with AI.
+
+## Core capabilities
+
+- Convert PNG images to SVG.
+- Convert JPG and JPEG images to SVG.
+- Convert WEBP images to SVG.
+- Generate clean, editable vector paths for logos, icons, illustrations, print, and web graphics.
+- Export SVG files for Adobe Illustrator, Figma, Sketch, and other SVG-compatible design tools.
+- Accept source files up to 5 MB and 16 megapixels, with dimensions from 256 px to 4096 px.
+
+## Official links
+
+- Website: https://svgconverter.org/
+- App Store: https://apps.apple.com/us/app/svg-converter-truesvg/id6751818935
+
+## Product facts
+
+- App name: SVG Converter: TrueSVG
+- Category: Graphics & Design
+- Platforms: iPhone and iPad
+- Supported source formats: PNG, JPG, JPEG, and WEBP
+- Output format: SVG

@@ -1,0 +1,8 @@
+---
+import { app } from '../content';
+interface Props { id: string; eager?: boolean; decorative?: boolean }
+const { id, eager = false, decorative = false } = Astro.props;
+const screen = app.screenshots.find(s => s.id === id);
+if (!screen) throw new Error(`Unknown screenshot ID: ${id}`);
+---
+<div class="phone"><img src={screen.src} alt={decorative ? '' : screen.alt} width="460" height="998" loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
