@@ -64,7 +64,7 @@ const faqJsonLd = {
 <section class="difference"><div class="wrap"><p class="eyebrow">{app.differentiator.eyebrow}</p><h2>{app.differentiator.title}</h2><p class="lead">{app.differentiator.description}</p><ul>{app.differentiator.points.map(p=><li><span aria-hidden="true">✳</span>{p}</li>)}</ul><div class="large-flower" aria-hidden="true">✳</div></div></section>
 <section id="faq" class="faq wrap"><div class="faq-heading"><p class="eyebrow">{app.faq.eyebrow}</p><h2>{app.faq.title}</h2><p class="lead">{app.faq.description}</p></div><div class="faq-list">{app.faq.items.map(item=><details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
 <section id="download" class="final wrap"><img src={app.icon} alt="" width="76" height="76"/><h2>{app.final.title}</h2><p class="lead">{app.final.description}</p><StoreLink/></section></main>
-<footer class="wrap"><div><a class="brand" href="#top"><img src={app.icon} alt="" width="26" height="26"/>{app.name}</a><p>{app.footer.text}</p></div><small>{app.footer.legal}</small><a href="#top">{app.footer.backToTop} ↑</a></footer>
+<footer class="wrap"><div><a class="brand" href="#top"><img src={app.icon} alt="" width="26" height="26"/>{app.name}</a><p>{app.footer.text}</p></div><small>{app.footer.legal}</small><nav class="footer-links" aria-label="Footer navigation"><a href="/privacypolicy/">Privacy Policy</a><a href="/changelog/">Changelog</a><a href="#top">{app.footer.backToTop} ↑</a></nav></footer>
 <script>
 const gallery = document.querySelector<HTMLElement>('.screen-gallery');
 const buttons = document.querySelectorAll<HTMLButtonElement>('[data-direction]');

@@ -45,8 +45,10 @@ The static package contains the contents of `dist/`. Upload every file and folde
 
 - `src/content.ts`: copy, App Store URL, SEO content, screenshots, features, reviews, FAQ, and footer
 - `src/pages/index.astro`: page structure and structured data
+- `src/pages/privacypolicy.astro` and `src/pages/changelog.astro`: retained public pages from the previous site
 - `src/styles/global.css`: design and responsive behavior
 - `public/truesvg/`: app icon and screenshots
+- `public/CNAME`: GitHub Pages custom-domain declaration
 - `astro.config.mjs`: production site URL and build configuration
 
 ## Launch checks

@@ -27,9 +27,11 @@ The production-ready static site is generated in `dist/`.
 
 - `src/content.ts` contains the product copy, metadata, App Store URL, reviews, FAQs, feature configuration, and screenshot records.
 - `src/pages/index.astro` contains the semantic page structure and structured data.
+- `src/pages/privacypolicy.astro` and `src/pages/changelog.astro` preserve the public legal and release-note routes from the previous site.
 - `src/styles/global.css` contains the design and responsive styles.
 - `public/truesvg/` contains the current TrueSVG icon and screenshots.
 - `public/robots.txt`, `public/sitemap.xml`, and `public/llms.txt` contain crawl and discovery information.
+- `public/CNAME` preserves the `svgconverter.org` custom domain in the deployed artifact.
 
 Every image in `public/truesvg/` is referenced by the live page. When replacing an image, keep its filename or update the corresponding path in `src/content.ts`.
 
