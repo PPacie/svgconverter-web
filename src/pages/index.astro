@@ -1,0 +1,74 @@
+---
+import { app } from '../content';
+import Phone from '../components/Phone.astro';
+import StoreLink from '../components/StoreLink.astro';
+import '../styles/global.css';
+const theme = Object.entries(app.colors).map(([key,value]) => `--${key}:${value}`).join(';');
+const socialImage = new URL('/truesvg/hero-raster.png', app.siteUrl).href;
+const appStoreId = '6751818935';
+const softwareJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MobileApplication',
+  '@id': `${app.siteUrl}#app`,
+  name: app.name,
+  alternateName: 'SVG Converter: TrueSVG',
+  url: app.siteUrl,
+  downloadUrl: app.appStoreUrl,
+  image: new URL(app.icon, app.siteUrl).href,
+  description: app.meta.description,
+  applicationCategory: 'DesignApplication',
+  applicationSubCategory: 'Graphics & Design',
+  operatingSystem: 'iOS 15.6 or later; iPadOS 15.6 or later',
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  sameAs: [app.appStoreUrl],
+  screenshot: app.screenshots.filter(screen => screen.showInGallery).map(screen => new URL(screen.src, app.siteUrl).href),
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+  featureList: ['PNG to SVG conversion', 'JPG to SVG conversion', 'WEBP to SVG conversion', 'AI image vectorization', 'Editable vector paths', 'SVG export'],
+  review: app.reviews.items.filter(review => review.rating > 4).map(review => ({
+    '@type': 'Review',
+    name: review.title,
+    reviewBody: review.quote,
+    author: { '@type': 'Person', name: review.name },
+    reviewRating: { '@type': 'Rating', ratingValue: review.rating, bestRating: 5 }
+  }))
+};
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${app.siteUrl}#website`,
+  url: app.siteUrl,
+  name: app.name,
+  description: app.meta.description,
+  inLanguage: 'en'
+};
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: app.faq.items.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer }
+  }))
+};
+---
+<!doctype html><html lang="en" style={theme}><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>{app.meta.title}</title><meta name="description" content={app.meta.description}/><meta name="keywords" content={app.meta.keywords}/><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"/><meta name="application-name" content={app.name}/><meta name="theme-color" content={app.colors.background}/><meta name="apple-itunes-app" content={`app-id=${appStoreId}, app-argument=${app.appStoreUrl}`}/><link rel="icon" href={app.icon}/><link rel="canonical" href={app.siteUrl}/><link rel="alternate" hreflang="en" href={app.siteUrl}/><link rel="alternate" hreflang="x-default" href={app.siteUrl}/><meta property="og:title" content={app.meta.title}/><meta property="og:description" content={app.meta.description}/><meta property="og:type" content="website"/><meta property="og:url" content={app.siteUrl}/><meta property="og:site_name" content={app.name}/><meta property="og:locale" content="en_US"/><meta property="og:image" content={socialImage}/><meta property="og:image:width" content="1464"/><meta property="og:image:height" content="1464"/><meta property="og:image:type" content="image/png"/><meta property="og:image:alt" content="TrueSVG converting a raster image into a scalable SVG vector"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={app.meta.title}/><meta name="twitter:description" content={app.meta.description}/><meta name="twitter:image" content={socialImage}/><meta name="twitter:image:alt" content="TrueSVG converting a raster image into a scalable SVG vector"/><script type="application/ld+json" set:html={JSON.stringify(softwareJsonLd)}></script><script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)}></script><script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script></head>
+<body id="top"><a class="skip-link" href="#main">Skip to content</a>
+<header class="header"><a href="#top" class="brand" aria-label={`${app.name} home`}><img src={app.icon} alt="" width="32" height="32"/>{app.name}</a><nav aria-label="Main navigation"><a href="#features">{app.navigation.features}</a><a href="#screens">{app.navigation.screens}</a><a href="#reviews">{app.navigation.reviews}</a></nav><StoreLink compact/></header>
+<main id="main"><section class="hero wrap"><div class="hero-copy"><div class="proof-pill"><span aria-hidden="true">★★★★★</span>{app.labels.socialProof}</div><p class="eyebrow"><span class="small-star" aria-hidden="true">✳</span>{app.hero.eyebrow}</p><h1>{app.hero.title}</h1><p class="lead">{app.hero.description}</p><StoreLink/><p class="fine">{app.hero.note}</p><a class="explore" href="#features">{app.labels.explore} <span aria-hidden="true">↓</span></a></div><div class="hero-art" aria-label={app.labels.preview}><div class="orbit" aria-hidden="true"></div>{app.hero.artwork.map((art,i)=><figure class={`hero-visual visual-${i}`}><img src={art.src} alt={art.alt} width="1464" height="1464" loading="eager" decoding="async"/></figure>)}</div></section>
+<div class="benefit-strip"><div class="benefit-track">{[0,1].map(copy=><div class="benefit-set" aria-hidden={copy === 1 ? 'true' : undefined}>{app.benefits.map(b=><span><i aria-hidden="true">✳</i>{b}</span>)}</div>)}</div></div>
+<section id="features" class="intro wrap"><p class="eyebrow">{app.intro.eyebrow}</p><h2>{app.intro.title}</h2><p class="lead">{app.intro.description}</p></section>
+<div class="features wrap">{app.features.map((feature,i)=><section class:list={["feature",{reverse:i%2===1}]} aria-labelledby={`feature-${i}`}><div class={`feature-art ${feature.tone}`}><span class="art-number" aria-hidden="true">0{i+1}</span>{feature.secondaryScreenshot ? <div class="feature-stack"><div class="stack-screen stack-left"><Phone id={feature.screenshot}/></div><div class="stack-screen stack-right"><Phone id={feature.secondaryScreenshot}/></div></div> : <Phone id={feature.screenshot}/>}<span class="corner-star" aria-hidden="true">✳</span></div><div class="feature-copy"><p class="eyebrow">0{i+1} / {app.labels.featureEyebrow}</p><h2 id={`feature-${i}`}>{feature.title}</h2><p class="lead">{feature.description}</p><p class="detail"><span aria-hidden="true">↳</span>{feature.detail}</p></div></section>)}</div>
+<section id="screens" class="showcase"><div class="wrap"><div class="showcase-heading"><div><p class="eyebrow">{app.showcase.eyebrow}</p><h2>{app.showcase.title}</h2><p class="lead">{app.showcase.description}</p></div><div class="gallery-controls"><button type="button" data-direction="-1" aria-label={app.showcase.previous}>←</button><button type="button" data-direction="1" aria-label={app.showcase.next}>→</button></div></div><div class="screen-gallery" tabindex="0" role="region" aria-label={app.labels.gallery}>{app.screenshots.filter(s => s.showInGallery).map((s,i)=><figure><Phone id={s.id}/><figcaption><span>0{i+1}</span>{s.caption}</figcaption></figure>)}</div></div></section>
+<section id="reviews" class="reviews"><div class="wrap"><div class="reviews-heading"><p class="eyebrow">{app.reviews.eyebrow}</p><h2>{app.reviews.title}</h2><p class="lead">{app.reviews.description}</p></div><div class="review-grid">{app.reviews.items.filter(review=>review.rating>4).map(review=><article class="review-card"><div class="review-stars" aria-label={`${review.rating} out of 5 stars`}>{Array.from({length:5},(_,i)=><span class:list={{muted:i>=review.rating}} aria-hidden="true">★</span>)}</div><h3>{review.title}</h3><blockquote>“{review.quote}”</blockquote><div class="review-author"><span class="review-avatar" aria-hidden="true">{review.name.slice(0,1).toUpperCase()}</span><p><strong>{review.name}</strong><small>{review.role}</small></p></div></article>)}</div></div></section>
+<section class="difference"><div class="wrap"><p class="eyebrow">{app.differentiator.eyebrow}</p><h2>{app.differentiator.title}</h2><p class="lead">{app.differentiator.description}</p><ul>{app.differentiator.points.map(p=><li><span aria-hidden="true">✳</span>{p}</li>)}</ul><div class="large-flower" aria-hidden="true">✳</div></div></section>
+<section id="faq" class="faq wrap"><div class="faq-heading"><p class="eyebrow">{app.faq.eyebrow}</p><h2>{app.faq.title}</h2><p class="lead">{app.faq.description}</p></div><div class="faq-list">{app.faq.items.map(item=><details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></section>
+<section id="download" class="final wrap"><img src={app.icon} alt="" width="76" height="76"/><h2>{app.final.title}</h2><p class="lead">{app.final.description}</p><StoreLink/></section></main>
+<footer class="wrap"><div><a class="brand" href="#top"><img src={app.icon} alt="" width="26" height="26"/>{app.name}</a><p>{app.footer.text}</p></div><small>{app.footer.legal}</small><a href="#top">{app.footer.backToTop} ↑</a></footer>
+<script>
+const gallery = document.querySelector<HTMLElement>('.screen-gallery');
+const buttons = document.querySelectorAll<HTMLButtonElement>('[data-direction]');
+function syncControls() { if (!gallery) return; buttons.forEach(button => { button.disabled = Number(button.dataset.direction) < 0 ? gallery.scrollLeft <= 2 : gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2; }); }
+buttons.forEach(button => button.addEventListener('click', () => { if (!gallery) return; const card = gallery.querySelector('figure'); const step = (card?.getBoundingClientRect().width ?? gallery.clientWidth) + 32; gallery.scrollBy({left: Number(button.dataset.direction) * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); }));
+gallery?.addEventListener('scroll', syncControls, {passive:true}); window.addEventListener('resize',syncControls); syncControls();
+</script></body></html>

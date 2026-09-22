@@ -1,0 +1,5 @@
+---
+import { app } from '../content';
+const { compact = false } = Astro.props;
+---
+{app.appStoreUrl ? <a class:list={["button", {compact}]} href={app.appStoreUrl} target="_blank" rel="noopener noreferrer" aria-label={`${compact ? app.navigation.download : app.cta.label} on the App Store (opens in a new tab)`}><span aria-hidden="true">↗</span>{compact ? app.navigation.download : app.cta.label}</a> : <span class:list={["button", "unavailable", {compact}]} role="status">{compact ? app.cta.shortUnavailable : app.cta.unavailable}</span>}
