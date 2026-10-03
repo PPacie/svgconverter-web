@@ -54,7 +54,7 @@ export const app = {
     { title: "Export once.\nScale anywhere.", description: "Save a high-quality SVG that stays crisp from small interface icons to large-format print.", detail: "Works with Illustrator, Figma, Sketch, and other design tools.", screenshot: "library", secondaryScreenshot: "export", tone: "lavender" }
   ],
   screenshots: [
-    { id: "picker", src: "/truesvg/photo-picker.png", alt: "iOS Photos picker showing colorful illustrations ready to select for SVG conversion", caption: "Choose from Photos", showInGallery: true },
+    { id: "picker", src: "/truesvg/photo-picker.webp", alt: "iOS Photos picker showing colorful illustrations ready to select for SVG conversion", caption: "Choose from Photos", showInGallery: true },
     { id: "import", src: "/truesvg/import.png", alt: "TrueSVG image selection screen with a Convert to SVG button", caption: "Import an image", showInGallery: true },
     { id: "vectorize", src: "/truesvg/vectorize.png", alt: "TrueSVG vectorization progress screen converting an image into a true SVG", caption: "Vectorize with AI", showInGallery: true },
     { id: "export", src: "/truesvg/export.png", alt: "TrueSVG exported file preview with a Share button", caption: "Export and share", showInGallery: true },
