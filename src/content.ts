@@ -26,8 +26,8 @@ export const app = {
     onDark: "#ffffff"
   },
   meta: {
-    title: "Image to SVG Converter — Vectorize PNG & JPG | TrueSVG",
-    description: "Convert PNG, JPG, and WEBP images to clean, scalable SVG vectors with AI. Create editable paths for logos, icons, print, web, Figma, and Illustrator.",
+    title: "Image to SVG Converter — Trace PNG & JPG | TrueSVG",
+    description: "Convert PNG, JPG, and WEBP images to clean, scalable SVG vectors with AI tracing. Create editable paths for logos, icons, print, web, Figma, and Illustrator.",
     keywords: "image to vector, image to SVG, PNG to SVG, JPG to SVG, WEBP to SVG, vectorize image, SVG converter, AI vectorizer"
   },
   navigation: { features: "How it works", screens: "Inside the app", reviews: "Reviews", download: "Get TrueSVG" },
@@ -50,7 +50,7 @@ export const app = {
   },
   features: [
     { title: "Choose an image.\nStart in a tap.", description: "Bring in a PNG, JPG, or WEBP file and let TrueSVG prepare it for conversion.", detail: "Supports files up to 5 MB and 16 megapixels.", screenshot: "picker", secondaryScreenshot: "import", tone: "peach" },
-    { title: "Clean paths.\nTrue vector output.", description: "A specialized AI model preserves the visual intent of your image while creating optimized, editable vector curves.", detail: "Made for logos, icons, illustrations, and graphics.", screenshot: "vectorize", secondaryScreenshot: null, tone: "sage" },
+    { title: "Clean paths.\nTrue vector output.", description: "A specialized AI model traces your image into optimized, editable vector curves while preserving its visual intent.", detail: "Made for logos, icons, illustrations, and graphics.", screenshot: "vectorize", secondaryScreenshot: null, tone: "sage" },
     { title: "Export once.\nScale anywhere.", description: "Save a high-quality SVG that stays crisp from small interface icons to large-format print.", detail: "Works with Illustrator, Figma, Sketch, and other design tools.", screenshot: "library", secondaryScreenshot: "export", tone: "lavender" }
   ],
   screenshots: [
@@ -89,6 +89,7 @@ export const app = {
     description: "Quick answers about converting raster images into editable, scalable SVG vector files.",
     items: [
       { question: "How do I convert an image to a vector SVG?", answer: "Open TrueSVG, choose a PNG, JPG, or WEBP image, start the AI vector conversion, then preview and export the finished SVG file. The result uses scalable vector paths instead of fixed pixels." },
+      { question: "What is SVG tracing, and can TrueSVG trace an image?", answer: "SVG tracing turns the shapes and colors of a raster image into vector paths. TrueSVG uses AI to trace PNG, JPG, and WEBP images into clean, editable SVG curves that stay sharp at any size." },
       { question: "Can TrueSVG convert PNG to SVG?", answer: "Yes. TrueSVG converts PNG images into clean SVG vector graphics. It is useful for vectorizing logos, icons, illustrations, and other artwork that needs to stay sharp at different sizes." },
       { question: "Can I convert JPG or WEBP images to SVG?", answer: "Yes. TrueSVG supports JPG, JPEG, PNG, and WEBP source images, so you can turn common raster image formats into scalable SVG files from your iPhone or iPad." },
       { question: "What is the difference between a raster image and a vector image?", answer: "Raster images are made from pixels and can look blurry when enlarged. Vector images use mathematical paths and curves, allowing an SVG to scale up or down while remaining crisp." },

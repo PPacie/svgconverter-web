@@ -7,6 +7,7 @@
 - Convert PNG images to SVG.
 - Convert JPG and JPEG images to SVG.
 - Convert WEBP images to SVG.
+- Trace raster images into SVG vector paths with AI (SVG tracing).
 - Generate clean, editable vector paths for logos, icons, illustrations, print, and web graphics.
 - Export SVG files for Adobe Illustrator, Figma, Sketch, and other SVG-compatible design tools.
 - Accept source files up to 5 MB and 16 megapixels, with dimensions from 256 px to 4096 px.
